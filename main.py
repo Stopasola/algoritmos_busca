@@ -1,16 +1,36 @@
-# This is a sample Python script.
+import csv
+import cv2
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def open_csv():
+    reading_list = list()
+    aux_list = list()
+    with open(filename) as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+        for row in csv_reader:
+            if row:
+                aux_list.append(row)
+            else:
+                reading_list.append(aux_list[:])
+                aux_list.clear()
+
+    print('reading_list:', reading_list)
+    return reading_list
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def write_csv(graph):
+
+    with open(filename, mode='a') as graph_file:
+        employee_writer = csv.writer(graph_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        for g in graph:
+            employee_writer.writerow(g)
+        employee_writer.writerow([])
 
 
-# Press the green button in the gutter to run the script.
+filename = 'graph_list.csv'
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    graph = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
+
+    open_csv()
+    write_csv(graph)
