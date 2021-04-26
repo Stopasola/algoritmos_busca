@@ -1,9 +1,7 @@
 import csv
 from a_star import astar_search
 from graph import Graph
-from node import Node
-from chinese_postman import start
-
+import dfs
 
 def open_csv():
     reading_list = list()
@@ -83,7 +81,7 @@ def example_graph():
     graph.connect('Passau', 'Linz', 102)
     Node('Linz', 'Passau')
     graph.connect('Salzburg', 'Linz', 126)
-    Node('Linz', 'Salzburg')
+
     # Make graph undirected, create symmetric connections
     # graph.make_undirected()
 
@@ -117,8 +115,8 @@ filename = 'graph_list.csv'
 
 if __name__ == '__main__':
 
-    graph_test = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
-    graph = example_graph()
+    graph = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
+    example_graph()
     #open_csv()
     #write_csv(graph)
 
