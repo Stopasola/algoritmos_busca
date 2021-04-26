@@ -1,3 +1,4 @@
+# This class represent a graph
 class Graph:
     # Initialize the class
     def __init__(self, graph_dict=None):
@@ -6,7 +7,6 @@ class Graph:
     # Add a link from A and B of given distance, and also add the inverse link if the graph is undirected
     def connect(self, A, B, distance=1):
         self.graph_dict.setdefault(A, {})[B] = distance
-
     # Get neighbors or a neighbor
     def get(self, a, b=None):
         links = self.graph_dict.setdefault(a, {})
@@ -14,7 +14,8 @@ class Graph:
             return links
         else:
             return links.get(b)
-
+    def structure(self):
+        return self.graph_dict
     # Return a list of nodes in the graph
     def nodes(self):
         s1 = set([k for k in self.graph_dict.keys()])

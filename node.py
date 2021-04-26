@@ -8,13 +8,10 @@ class Node:
 
     # Compare nodes
     def __eq__(self, other):
-        print('meu cu1')
         return self.name == other.name
     # Sort nodes
     def __lt__(self, other):
-         print('meu cu2')
          return self.f < other.f
     # Print node
     def __repr__(self):
-        print('meu cu3')
         return ('({0},{1})'.format(self.name, self.f))

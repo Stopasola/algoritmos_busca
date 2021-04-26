@@ -1,6 +1,8 @@
 import csv
 from a_star import astar_search
 from graph import Graph
+from node import Node
+from chinese_postman import start
 
 
 def open_csv():
@@ -33,31 +35,55 @@ def example_graph():
     graph = Graph()
     # Create graph connections (Actual distance)
     graph.connect('Frankfurt', 'Wurzburg', 111)
+    Node('Wurzburg', 'Frankfurt')
     graph.connect('Frankfurt', 'Mannheim', 85)
+    Node('Mannheim', 'Frankfurt')
     graph.connect('Wurzburg', 'Nurnberg', 104)
+    Node('Nurnberg', 'Wurzburg')
     graph.connect('Wurzburg', 'Stuttgart', 140)
+    Node('Stuttgart', 'Wurzburg')
     graph.connect('Wurzburg', 'Ulm', 183)
+    Node('Ulm', 'Wurzburg')
     graph.connect('Mannheim', 'Nurnberg', 230)
+    Node('Nurnberg', 'Mannheim')
     graph.connect('Mannheim', 'Karlsruhe', 67)
+    Node('Karlsruhe', 'Mannheim')
     graph.connect('Karlsruhe', 'Basel', 191)
+    Node('Basel', 'Karlsruhe')
     graph.connect('Karlsruhe', 'Stuttgart', 64)
+    Node('Stuttgart', 'Karlsruhe')
     graph.connect('Nurnberg', 'Ulm', 171)
+    Node('Ulm', 'Nurnberg')
     graph.connect('Nurnberg', 'Munchen', 170)
+    Node('Munchen', 'Nurnberg')
     graph.connect('Nurnberg', 'Passau', 220)
+    Node('Passau', 'Nurnberg')
     graph.connect('Stuttgart', 'Ulm', 107)
+    Node('Ulm', 'Stuttgart')
     graph.connect('Basel', 'Bern', 91)
+    Node('Bern', 'Basel')
     graph.connect('Basel', 'Zurich', 85)
+    Node('Zurich', 'Basel')
     graph.connect('Bern', 'Zurich', 120)
+    Node('Zurich', 'Bern')
     graph.connect('Zurich', 'Memmingen', 184)
+    Node('Memmingen', 'Zurich')
     graph.connect('Memmingen', 'Ulm', 55)
+    Node('Ulm', 'Memmingen')
     graph.connect('Memmingen', 'Munchen', 115)
+    Node('Munchen', 'Memmingen')
     graph.connect('Munchen', 'Ulm', 123)
+    Node('Ulm', 'Munchen')
     graph.connect('Munchen', 'Passau', 189)
+    Node('Passau', 'Munchen')
     graph.connect('Munchen', 'Rosenheim', 59)
+    Node('Rosenheim', 'Munchen')
     graph.connect('Rosenheim', 'Salzburg', 81)
+    Node('Salzburg', 'Rosenheim')
     graph.connect('Passau', 'Linz', 102)
+    Node('Linz', 'Passau')
     graph.connect('Salzburg', 'Linz', 126)
-
+    Node('Linz', 'Salzburg')
     # Make graph undirected, create symmetric connections
     # graph.make_undirected()
 
@@ -83,15 +109,20 @@ def example_graph():
     path = astar_search(graph, heuristics, 'Frankfurt', 'Ulm')
     print(path)
     print()
+    return graph
+
+
 '''======================= Global Variables ======================================='''
 filename = 'graph_list.csv'
 
 if __name__ == '__main__':
 
-    graph = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
-    example_graph()
+    graph_test = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
+    graph = example_graph()
     #open_csv()
     #write_csv(graph)
+
+    start(graph)
 
 
 # https://www.annytab.com/a-star-search-algorithm-in-python/#:~:text=The%20goal%20of%20the%20A,the%20goal%20node%20(h).
