@@ -1,7 +1,6 @@
 import csv
-from a_star import astar_search
 from graph import Graph
-
+import dfs
 
 def open_csv():
     reading_list = list()
@@ -22,10 +21,14 @@ def open_csv():
 def write_csv(graph):
 
     with open(filename, mode='a') as graph_file:
-        employee_writer = csv.writer(graph_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+        employee_writer = csv.writer(
+            graph_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for g in graph:
             employee_writer.writerow(g)
         employee_writer.writerow([])
+
+
+
 
 
 def example_graph():
@@ -58,40 +61,29 @@ def example_graph():
     graph.connect('Passau', 'Linz', 102)
     graph.connect('Salzburg', 'Linz', 126)
 
-    # Make graph undirected, create symmetric connections
-    # graph.make_undirected()
+    
 
-    # Create heuristics (straight-line distance, air-travel distance)
-    heuristics = {}
-    heuristics['Basel'] = 204
-    heuristics['Bern'] = 247
-    heuristics['Frankfurt'] = 215
-    heuristics['Karlsruhe'] = 137
-    heuristics['Linz'] = 318
-    heuristics['Mannheim'] = 164
-    heuristics['Munchen'] = 120
-    heuristics['Memmingen'] = 47
-    heuristics['Nurnberg'] = 132
-    heuristics['Passau'] = 257
-    heuristics['Rosenheim'] = 168
-    heuristics['Stuttgart'] = 75
-    heuristics['Salzburg'] = 236
-    heuristics['Wurzburg'] = 153
-    heuristics['Zurich'] = 157
-    heuristics['Ulm'] = 0
-    # Run the search algorithm
-    path = astar_search(graph, heuristics, 'Frankfurt', 'Ulm')
+    starting_point = 'asd'
+    ending_point = 'Ulm'
+    path = dfs.regular_DFS(graph, starting_point)
     print(path)
-    print()
+    # path, cost = dfs.targetet_DFS(graph, starting_point, ending_point)
+    print(path)
+    print(cost)
+    
+
+
+
 '''======================= Global Variables ======================================='''
 filename = 'graph_list.csv'
+cost = 0
 
 if __name__ == '__main__':
 
     graph = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
     example_graph()
-    #open_csv()
-    #write_csv(graph)
+    # open_csv()
+    # write_csv(graph)
 
 
 # https://www.annytab.com/a-star-search-algorithm-in-python/#:~:text=The%20goal%20of%20the%20A,the%20goal%20node%20(h).
