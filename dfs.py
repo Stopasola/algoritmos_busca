@@ -18,7 +18,7 @@ def regular_dfs_search(graph, point, visited=[]):
 
 def targetet_DFS(graph, start_point, ending_point):
     path = targeted_dfs_search(graph, start_point, ending_point)
-    return path, cost
+    return cost
 
 
 def targeted_dfs_search(graph, point, ending_point, visited=[]):
@@ -31,7 +31,7 @@ def targeted_dfs_search(graph, point, ending_point, visited=[]):
 
     for node, weight in adjacent_nodes.items():
         if node not in visited:
-            cost += weight
+            cost += int(weight)
             path = targeted_dfs_search(graph, node, ending_point, visited)
             if path:
                 return path

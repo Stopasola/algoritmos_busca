@@ -1,7 +1,8 @@
 import csv
 from a_star import astar_search
 from graph import Graph
-import dfs
+from node import Node
+from chinese_postman import start
 
 def open_csv():
     reading_list = list()
@@ -15,8 +16,8 @@ def open_csv():
                 reading_list.append(aux_list[:])
                 aux_list.clear()
 
-    print('reading_list:', reading_list)
-    return reading_list
+    # print('reading_list:', reading_list)
+    return reading_list[0]
 
 
 def write_csv(graph):
@@ -29,57 +30,56 @@ def write_csv(graph):
 
 
 def example_graph():
-    # Create a graph
     graph = Graph()
-    # Create graph connections (Actual distance)
+    
     graph.connect('Frankfurt', 'Wurzburg', 111)
-    Node('Wurzburg', 'Frankfurt')
+    #Node('Wurzburg', 'Frankfurt')
     graph.connect('Frankfurt', 'Mannheim', 85)
-    Node('Mannheim', 'Frankfurt')
+    #Node('Mannheim', 'Frankfurt')
     graph.connect('Wurzburg', 'Nurnberg', 104)
-    Node('Nurnberg', 'Wurzburg')
+    #Node('Nurnberg', 'Wurzburg')
     graph.connect('Wurzburg', 'Stuttgart', 140)
-    Node('Stuttgart', 'Wurzburg')
+    #Node('Stuttgart', 'Wurzburg')
     graph.connect('Wurzburg', 'Ulm', 183)
-    Node('Ulm', 'Wurzburg')
+    #Node('Ulm', 'Wurzburg')
     graph.connect('Mannheim', 'Nurnberg', 230)
-    Node('Nurnberg', 'Mannheim')
+    #Node('Nurnberg', 'Mannheim')
     graph.connect('Mannheim', 'Karlsruhe', 67)
-    Node('Karlsruhe', 'Mannheim')
+    #Node('Karlsruhe', 'Mannheim')
     graph.connect('Karlsruhe', 'Basel', 191)
-    Node('Basel', 'Karlsruhe')
+    #Node('Basel', 'Karlsruhe')
     graph.connect('Karlsruhe', 'Stuttgart', 64)
-    Node('Stuttgart', 'Karlsruhe')
+    #Node('Stuttgart', 'Karlsruhe')
     graph.connect('Nurnberg', 'Ulm', 171)
-    Node('Ulm', 'Nurnberg')
+    #Node('Ulm', 'Nurnberg')
     graph.connect('Nurnberg', 'Munchen', 170)
-    Node('Munchen', 'Nurnberg')
+    #Node('Munchen', 'Nurnberg')
     graph.connect('Nurnberg', 'Passau', 220)
-    Node('Passau', 'Nurnberg')
+    #Node('Passau', 'Nurnberg')
     graph.connect('Stuttgart', 'Ulm', 107)
-    Node('Ulm', 'Stuttgart')
+    #Node('Ulm', 'Stuttgart')
     graph.connect('Basel', 'Bern', 91)
-    Node('Bern', 'Basel')
+    #Node('Bern', 'Basel')
     graph.connect('Basel', 'Zurich', 85)
-    Node('Zurich', 'Basel')
+    #Node('Zurich', 'Basel')
     graph.connect('Bern', 'Zurich', 120)
-    Node('Zurich', 'Bern')
+    #Node('Zurich', 'Bern')
     graph.connect('Zurich', 'Memmingen', 184)
-    Node('Memmingen', 'Zurich')
+    #Node('Memmingen', 'Zurich')
     graph.connect('Memmingen', 'Ulm', 55)
-    Node('Ulm', 'Memmingen')
+    #Node('Ulm', 'Memmingen')
     graph.connect('Memmingen', 'Munchen', 115)
-    Node('Munchen', 'Memmingen')
+    #Node('Munchen', 'Memmingen')
     graph.connect('Munchen', 'Ulm', 123)
-    Node('Ulm', 'Munchen')
+    #Node('Ulm', 'Munchen')
     graph.connect('Munchen', 'Passau', 189)
-    Node('Passau', 'Munchen')
+    #Node('Passau', 'Munchen')
     graph.connect('Munchen', 'Rosenheim', 59)
-    Node('Rosenheim', 'Munchen')
+    #Node('Rosenheim', 'Munchen')
     graph.connect('Rosenheim', 'Salzburg', 81)
-    Node('Salzburg', 'Rosenheim')
+    #Node('Salzburg', 'Rosenheim')
     graph.connect('Passau', 'Linz', 102)
-    Node('Linz', 'Passau')
+    #Node('Linz', 'Passau')
     graph.connect('Salzburg', 'Linz', 126)
 
     # Make graph undirected, create symmetric connections
@@ -110,13 +110,22 @@ def example_graph():
     return graph
 
 
+def load_graph(graph_list):
+    graph = Graph()
+    for connection in graph_list:
+        graph.connect(connection[0], connection[1], connection[2])
+    return graph
+
+
 '''======================= Global Variables ======================================='''
 filename = 'graph_list.csv'
 
 if __name__ == '__main__':
 
     graph = [['a', 'c', '8'], ['a', 'b', '7'], ['c', 'd', '8']]
-    example_graph()
+    graph_list = open_csv()
+    graph = load_graph(graph_list)
+    #graph = example_graph()
     #open_csv()
     #write_csv(graph)
 

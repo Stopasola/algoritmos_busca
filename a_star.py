@@ -1,5 +1,5 @@
 from node import Node
-def astar_search(graph, heuristics, start, end):
+def astar_search(graph, start, end):
     # Create lists for open nodes and closed nodes
     open = []
     closed = []
@@ -36,9 +36,9 @@ def astar_search(graph, heuristics, start, end):
             # Check if the neighbor is in the closed list
             if (neighbor in closed):
                 continue
-            # Calculate full path cost
-            neighbor.g = current_node.g + graph.get(current_node.name, neighbor.name)
-            neighbor.h = heuristics.get(neighbor.name)
+            # Generate heuristics (Manhattan distance)
+            neighbor.g = current_node.g + int(graph.get(current_node.name, neighbor.name))
+            neighbor.h = abs(neighbor.position[0] - goal_node.position[0]) + abs(neighbor.position[1] - goal_node.position[1])
             neighbor.f = neighbor.g + neighbor.h
             # Check if neighbor is in open list and if it has a lower f value
             if (add_to_open(open, neighbor) == True):
