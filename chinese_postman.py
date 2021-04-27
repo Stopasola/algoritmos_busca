@@ -72,6 +72,25 @@ def calculate_pairings(pairings_sum, graph):
 
     print(min_sums)
 
+def calculate_pairings_dfs(pairings_sum, graph):
+    min_sums = []
+    paths = []
+    aux_i = 0
+    for i in pairings_sum:
+        s = 0
+        paths.append([])
+        for j in range(len(i)):
+            path, cost = targetet_DFS(graph, i[j][0], i[j][1])
+            paths[aux_i].append(path)
+            print('Cost of: ', i[j][0], 'to: ', i[j][1], 'is:', cost)
+            s += cost
+        min_sums.append(s)
+        aux_i += 1
+        print('Total cost of tuple: ', s)
+
+    print(min_sums)
+    return paths, min_sums
+
 def add_edges():
     pass
 
@@ -92,8 +111,10 @@ def start(graph):
 
     get_pairs(pairs)
     print(pairings_sum)
-
-    calculate_pairings(pairings_sum, graph)
+    paths, min_sums = calculate_pairings_dfs(pairings_sum, graph)
+    print(paths)
+    print(min_sums)
+    # calculate_pairings(pairings_sum, graph)
 
 
 # Fiz com base nos exemplos, temos que verificar com um code para ter ctz

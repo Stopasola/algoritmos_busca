@@ -17,11 +17,13 @@ def regular_dfs_search(graph, point, visited=[]):
 
 
 def targetet_DFS(graph, start_point, ending_point):
-    path = targeted_dfs_search(graph, start_point, ending_point)
-    return cost
+    global cost
+    cost = 0
+    path = targeted_dfs_search(graph, start_point, ending_point, visited = [])
+    return path, cost
 
 
-def targeted_dfs_search(graph, point, ending_point, visited=[]):
+def targeted_dfs_search(graph, point, ending_point, visited):
     global cost
     visited.append(point)
     if (point == ending_point):

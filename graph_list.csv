@@ -1,0 +1,12 @@
+altamira,cascavel,20
+altamira,brusque,10
+brusque,diadema,50
+brusque,esmeralda,10
+cascavel,diadema,20
+cascavel,esmeralda,33
+diadema,esmeralda,5
+diadema,florianopolis,12
+esmeralda,florianopolis,1
+esmeralda,altamira,12
+florianopolis,cascavel,22
+
