@@ -1,24 +1,20 @@
-# This class represent a graph
 class Graph:
-    # Initialize the class
+    # Construtor
     def __init__(self, graph_dict=None):
         self.graph_dict = graph_dict or {}
 
-    # Add a link from A and B of given distance, and also add the inverse link if the graph is undirected
-    def connect(self, A, B, distance=1):
+    # Cria a conexão entre dois nós, com o valor de distância
+    def connect(self, A, B, distance):
         self.graph_dict.setdefault(A, {})[B] = distance
-    # Get neighbors or a neighbor
+
+    # Função recursiva para buscar nós vizinhos
     def get(self, a, b=None):
         links = self.graph_dict.setdefault(a, {})
         if b is None:
             return links
         else:
             return links.get(b)
+
+    # Retorna um dicionário com a estrutura do grafo
     def structure(self):
         return self.graph_dict
-
-    def nodes(self):
-        s1 = set([k for k in self.graph_dict.keys()])
-        s2 = set([k2 for v in self.graph_dict.values() for k2, v2 in v.items()])
-        nodes = s1.union(s2)
-        return list(nodes)

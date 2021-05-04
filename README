@@ -1,0 +1,10 @@
+Para executar o código, basta executar a função main, ela irá carregar as informações correspondente aos dados do
+grafo (graph_list.csv) e as coordenadas de cada nó (coordinatres.csv).
+Será retornado o custo total para as bsucas A* e busca em profundidade.
+
+Obs: para a leitura correta dos arquivos csv, é necessário adicionar duas linahs em branco após o grafo inserido.
+Obs2: É possivel que seja necessário instalar o package csv para executar o programa em algumas máquinas, para tal
+é necessário executar os seguintes comando.
+
+>> pip install pip
+>> pip install csv
