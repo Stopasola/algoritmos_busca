@@ -1,5 +1,6 @@
 import csv
 from graph import Graph
+from graph import GraphEncoder
 from chinese_postman import start
 
 
@@ -44,9 +45,17 @@ def load_graph(graph_list):
     return graph
 
 
+def load_graph_json():
+    graph = Graph()
+
+    for connection in graph_list:
+        graph.connect(connection[0], connection[1], connection[2])
+    return graph
+
+
 '''======================= Global Variables ======================================='''
-graph_filename = 'graph_list.csv'
-coordinates_filename = 'coordinates.csv'
+graph_filename = 'graph_1.csv'
+coordinates_filename = 'coordinates_1.csv'
 
 if __name__ == '__main__':
 

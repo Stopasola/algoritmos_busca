@@ -1,7 +1,7 @@
 cost = 0
 
 
-# Função para cahmar algoritmo de busca em profundidade padrão (não foi usado)
+# Função para chamar algoritmo de busca em profundidade padrão (não foi usado)
 def regular_DFS(graph, starting_point):
     path = regular_dfs_search(graph, starting_point)
     return path

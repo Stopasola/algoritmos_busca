@@ -1,0 +1,51 @@
+{
+  "graph": {
+    "GraphName": "Graph 1",
+    "NumberNodes": "5",
+    "Paths": [
+      { "StartCity": "altamira",
+        "EndCity": "cascavel",
+        "Distance": "20"
+      },
+      { "StartCity": "altamira",
+        "EndCity": "brusque",
+        "Distance": "10"
+      },
+      { "StartCity": "brusque",
+        "EndCity": "diadema",
+        "Distance": "50"
+      },
+      { "StartCity": "brusque",
+        "EndCity": "esmeralda",
+        "Distance": "10"
+      },
+      { "StartCity": "cascavel",
+        "EndCity": "diadema",
+        "Distance": "20"
+      },
+      { "StartCity": "cascavel",
+        "EndCity": "esmeralda",
+        "Distance": "33"
+      },
+      { "StartCity": "diadema",
+        "EndCity": "esmeralda",
+        "Distance": "5"
+      },
+      { "StartCity": "diadema",
+        "EndCity": "florianopolis",
+        "Distance": "12"
+      },
+      { "StartCity": "esmeralda",
+        "EndCity": "florianopolis",
+        "Distance": "1"
+      },
+      { "StartCity": "esmeralda",
+        "EndCity": "altamira",
+        "Distance": "12"
+      },
+      { "StartCity": "florianopolis",
+        "EndCity": "cascavel",
+        "Distance": "22"
+      } ]
+  }
+}

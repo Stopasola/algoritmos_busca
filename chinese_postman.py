@@ -67,7 +67,7 @@ def calculate_pairings_astar(pairings_sum, graph, coordinates):
         paths.append([])
         for j in range(len(i)):
             cost = astar_search(graph, coordinates, i[j][0], i[j][1])
-            #print('Custo: ', i[j][0], 'de: ', i[j][1], 'para:', cost)
+            print('Custo: ', i[j][0], 'de: ', i[j][1], 'para:', cost)
             paths[aux_i].append([i[j][0], i[j][1], cost])
             s += cost
         min_sums.append(s)
@@ -86,7 +86,7 @@ def calculate_pairings_dfs(pairings_sum, graph):
         for j in range(len(i)):
             path, cost = targetet_DFS(graph, i[j][0], i[j][1])
             paths[aux_i].append([i[j][0], i[j][1], cost])
-            #print('Custo: ', i[j][0], 'de: ', i[j][1], 'para:', cost)
+            print('Custo: ', i[j][0], 'de: ', i[j][1], 'para:', cost)
             s += cost
         min_sums.append(s)
         aux_i += 1

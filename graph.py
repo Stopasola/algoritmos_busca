@@ -1,3 +1,6 @@
+from json import JSONEncoder
+
+
 class Graph:
     # Construtor
     def __init__(self, graph_dict=None):
@@ -18,3 +21,8 @@ class Graph:
     # Retorna um dicionário com a estrutura do grafo
     def structure(self):
         return self.graph_dict
+
+
+class GraphEncoder(JSONEncoder):
+    def default(self, o):
+        return o.__dict__
