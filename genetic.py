@@ -12,9 +12,6 @@ class Genetic:
             for j in range(len(graph)):
                 if j == 0:
                     individual.append(initial)
-
-                
-
             population.append(individual)
 
     def Selection(self):

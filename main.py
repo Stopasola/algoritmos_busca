@@ -54,8 +54,8 @@ def load_graph_json():
 
 
 '''======================= Global Variables ======================================='''
-graph_filename = 'graph_1.csv'
-coordinates_filename = 'coordinates_1.csv'
+graph_filename = 'graph_2.csv'
+coordinates_filename = 'coordinates_2.csv'
 
 if __name__ == '__main__':
 
