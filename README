@@ -10,10 +10,12 @@ Obs2: É possivel que seja necessário instalar o package csv para executar o pr
 >> pip install csv
 
 
-
 grap_structure  {'Frankfurt': {'Wurzburg': 111, 'Mannheim': 85}, 'Wurzburg': {'Nurnberg': 104, 'Stuttgart': 140, 'Ulm': 183}, 'Mannheim': {'Nurnberg': 230, 'Karlsruhe': 67}, 'Karlsruhe': {'Basel': 191, 'Stuttgart': 64}, 'Nurnberg': {'Ulm': 171, 'Munchen': 170, 'Passau': 220}, 'Stuttgart': {'Ulm': 107}, 'Basel': {'Bern': 91, 'Zurich': 85}, 'Bern': {'Zurich': 120}, 'Zurich': {'Memmingen': 184}, 'Memmingen': {'Ulm': 55, 'Munchen': 115}, 'Munchen': {'Ulm': 123, 'Passau': 189, 'Rosenheim': 59}, 'Rosenheim': {'Salzburg': 81}, 'Passau': {'Linz': 102}, 'Salzburg': {'Linz': 126}}
 
 {'Frankfurt': {'Wurzburg': 111, 'Mannheim': 85}, 'Wurzburg': {'Nurnberg': 104, 'Stuttgart': 140, 'Ulm': 183}, 'Mannheim': {'Nurnberg': 230, 'Karlsruhe': 67}, 'Karlsruhe': {'Basel': 191, 'Stuttgart': 64}, 'Nurnberg': {'Ulm': 171, 'Munchen': 170, 'Passau': 220}, 'Stuttgart': {'Ulm': 107}, 'Basel': {'Bern': 91, 'Zurich': 85}, 'Bern': {'Zurich': 120}, 'Zurich': {'Memmingen': 184}, 'Memmingen': {'Ulm': 55, 'Munchen': 115}, 'Munchen': {'Ulm': 123, 'Passau': 189, 'Rosenheim': 59}, 'Rosenheim': {'Salzburg': 81}, 'Passau': {'Linz': 102}, 'Salzburg': {'Linz': 126}}
+
+
+![image](https://user-images.githubusercontent.com/17886190/160051673-bff395e7-4997-40e7-8bfa-afcd1c98e867.png)
 
 
 altamira,cascavel,20
